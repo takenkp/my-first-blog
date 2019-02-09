@@ -5,5 +5,3 @@ from .models import Post
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
-
-# 글 목록을 개시일 기준으로 정렬
