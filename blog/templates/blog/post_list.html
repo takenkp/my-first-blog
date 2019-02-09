@@ -4,12 +4,15 @@
     </head>
   <body>
     <div>
-      <h1><strong>하이</strong></h1>
+      <h1><strong>kp's blog</strong></h1>
     </div>
 
+{% for post in posts %}
     <div>
-      <h2>하이하이</h2>
+        <p>published: {{post.published_date}}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{post.text|linebreaksbr }}</p>
     </div>
-
+{% endfor %}
   </body>
 </html>
