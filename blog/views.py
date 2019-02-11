@@ -17,9 +17,10 @@ def post_new(request):
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            Post.author = request.User
-            post.published_date = timezone.now
+            Post.author = request.user
+            post.published_date = timezone.now()
             post.save()
+            return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
